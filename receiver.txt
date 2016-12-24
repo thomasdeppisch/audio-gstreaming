@@ -1,0 +1,3 @@
+#Receive vorbis stream on multicast address and send to Jack
+
+gst-launch-1.0 udpsrc multicast-group=234.5.5.1 auto-multicast=true port=3000 caps="application/x-rtp" ! queue ! rtpjitterbuffer latency=1000 ! rtpvorbisdepay ! vorbisdec ! audioconvert ! jackaudiosink client-name=rcv
