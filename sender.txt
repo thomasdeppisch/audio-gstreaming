@@ -1,3 +1,3 @@
 #Encode and send vorbis stream from Jack source to multicast address
 
-gst-launch-1.0 jackaudiosrc client-name=sender ! "audio/x-raw, rate=44100, channels=2" ! audioconvert ! audioresample ! vorbisenc ! rtpvorbispay config-interval=10 ! udpsink port=3000 host=234.5.5.1
+gst-launch-1.0 jackaudiosrc ! audioconvert ! "audio/x-raw, rate=44100, channels=8" !  vorbisenc ! rtpvorbispay config-interval=10 ! udpsink port=3000 host=192.168.11.34
